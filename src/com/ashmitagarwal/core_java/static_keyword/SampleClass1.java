@@ -5,9 +5,11 @@ public class SampleClass1 {
 	public static int i;
 	
 	public SampleClass1() {
+		System.out.println("i = " + i);
 		i = 10;
 		System.out.println("Default constructor of SampleClass1");
 		System.out.println("i = " + i);
 	}
+	
 
 }
