@@ -1,4 +1,4 @@
-package com.ashmitagarwal.core_java.final_keyword;
+package com.ashmitagarwal.core_java.oops.final_keyword;
 
 public class SampleSubClass1 extends SampleClass1 {
 

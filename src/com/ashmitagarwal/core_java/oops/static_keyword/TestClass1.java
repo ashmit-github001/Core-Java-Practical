@@ -1,4 +1,4 @@
-package com.ashmitagarwal.core_java.static_keyword;
+package com.ashmitagarwal.core_java.oops.static_keyword;
 
 public class TestClass1 {
 	

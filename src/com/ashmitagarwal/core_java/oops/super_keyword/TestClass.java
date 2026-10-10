@@ -1,4 +1,4 @@
-package com.ashmitagarwal.core_java.super_keyword;
+package com.ashmitagarwal.core_java.oops.super_keyword;
 
 public class TestClass {
 	

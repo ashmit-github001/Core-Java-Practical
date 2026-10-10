@@ -1,4 +1,4 @@
-package com.ashmitagarwal.core_java.constructor;
+package com.ashmitagarwal.core_java.oops.constructor;
 
 public class SampleClass1 {
 	
