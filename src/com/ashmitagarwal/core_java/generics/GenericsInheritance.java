@@ -37,14 +37,14 @@ public class GenericsInheritance {
 		
 		// Arrays Support Co-variance directly
 		
-		Object[] objArr = new String [2]; // Both co-variance and polymorphism
+		Number[] nArr = new Integer [2]; // Both co-variance and polymorphism
 		
-		String[] sArray = { "foo", "bar" };
-		Object[] oArray = sArray;
+		Integer[] iArray = { 10, 20 };
+		Number[] nArray = iArray;
 		
-		printsArray(sArray);
+		printsArray(iArray);
 		
-		oArray = returnsArray(sArray);
+		nArray = returnsArray(iArray);
 		
 		
 		
@@ -56,12 +56,12 @@ public class GenericsInheritance {
 		*/
 
 		
-//		List<Object> objList = new ArrayList<String>();
-//		Type mismatch: cannot convert from List<String> to List<Object>
+//		List<Number> nList = new ArrayList<Integer>();
+//		Type mismatch: cannot convert from ArrayList<Integer> to List<Number>
 		
-		List<String> sList = List.of("foo", "bar");
-//		printsList(sList);
-//		The method printsList(List<Object>) is not applicable for the arguments (List<String>)
+		List<Integer> iList = List.of(10, 20);
+//		printsList(iList);
+//		The method printsList(List<Number>) is not applicable for the arguments (List<Integer>)
 		
 		/*
 		   
@@ -80,26 +80,64 @@ public class GenericsInheritance {
 		return s;
 	}
 
-	private static void printsArray(Object[] oArray) {
-		for(Object o : oArray) {
-			System.out.println(o);
+	private static void printsArray(Number[] nArray) {
+		for(Number n : nArray) {
+			System.out.println(n);
 		}
 		
-//		oArray.add(...); --> However, this won't be allowed by the compiler
-//		oArray[0] = 100; --> This will be allowed but would give - ArrayStoreException
+//		nArray.add(...); --> However, this won't be allowed by the compiler
+//		nArray[0] = "abc"; --> This will be allowed but would give - ArrayStoreException
 	}
 	
-	private static Object[] returnsArray(String[] sArray) {
-		return sArray;
+	private static Number[] returnsArray(Integer[] iArray) {
+		return iArray;
 	}
 	
-	private static void printsList(List<Object> oList) {
-		oList.forEach(e -> System.out.println(e));
+	private static void printsList(List<Number> nList) {
+		nList.forEach(e -> System.out.println(e));
+		
+		/*
+		   
+		   Although the Type passed is Integer but I can add Double here.
+		   This ignored type safety is the reason why Generic Type doesn't support 
+		   covariance / inheritance / polymorphism directly
+		   
+		*/
+		
+		nList.add(3.14d);
 	}
 	
 	// Not Allowed
-//	private static List<Object> returnsList(List<String> sList) {
-//		return sList; --> Type mismatch: cannot convert from List<String> to List<Object>
+//	private static List<Number> returnsList(List<Integer> iList) {
+//		return iList; // --> Type mismatch: cannot convert from List<Integer> to List<Number>
 //	}
+	
+	
+	
+	/* ------------------------------------------------------------ */
+	
+	
+	
+	/*
+
+	  Example of Covariant Return Type in Method Overriding
+	  The overriding method is returning Dog which is a SubType of Animal
+
+	*/
+	
+	private class Animal {
+		
+		public Animal getAnimal() {
+			return this;
+		}
+	}
+	
+	private class Dog extends Animal {
+		
+		@Override
+		public Dog getAnimal() {
+			return this;
+		}
+	}
 	
 }
