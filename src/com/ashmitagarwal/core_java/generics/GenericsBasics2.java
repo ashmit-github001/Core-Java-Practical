@@ -19,7 +19,7 @@ public class GenericsBasics2 {
 		Bag<RedDice> redBag = new Bag<>();
 		redBag.setDice1(new RedDice());
 		redBag.setDice2(new RedDice());
-//		redBag.setDice2(new BlueDice()); --> Compiler won't allow
+//		redBag.setDice2(new BlueBall()); --> Compiler won't allow
 		
 		Bag<BlueDice> blueBag = new Bag<>();
 		blueBag.setDice1(new BlueDice());
@@ -42,7 +42,7 @@ public class GenericsBasics2 {
 		
 		Bag<BlueDice> bag2 = new Bag(new BlueDice(), new RedDice()); // How is this allowed?
 		
-//		Bag<BlueDice> bag3 = new Bag<BlueDice>(new BlueDice(), new RedDice()); // But this isn't ?!?
+//		Basket<BlueBall> bag3 = new Basket<BlueBall>(new BlueBall(), new RedBall()); // But this isn't ?!?
 		
 		
 		/*
@@ -50,10 +50,10 @@ public class GenericsBasics2 {
 		  In case of 'bag2' :
 		    
 		  - When the expression on the right side is evaluated , no Generic is assigned.
-		  	It is just creating an Object of Bag with some objects passed to it.
-		  	So, passing just 'new RedDice()' is --> Raw Type assigned to Generic Type.
+		  	It is just creating an Object of Basket with some objects passed to it.
+		  	So, passing just 'new RedBall()' is --> Raw Type assigned to Generic Type.
 		  	
-		  - When the right side Object is then assigned to 'Bag<BlueDice> bag2',
+		  - When the right side Object is then assigned to 'Basket<BlueBall> bag2',
 		  	it is again --> Raw Type assigned to a Generic Type
 		  
 		  - This type of inter-operability of assigning,
@@ -66,11 +66,11 @@ public class GenericsBasics2 {
 		  In case of 'bag3' :
 		  
 		  - The right side expression is of Generic Type,
-		  	due to use of <BlueDice>, so it doesn't allow RedDice Type to be passed.
-		  	And it shows - The constructor Bag<BlueDice>(BlueDice, RedDice) is undefined
+		  	due to use of <BlueBall>, so it doesn't allow RedBall Type to be passed.
+		  	And it shows - The constructor Basket<BlueBall>(BlueBall, RedBall) is undefined
 		  	
-		  - Also, if we use new Bag<>(new BlueDice(), new RedDice()),
-		  	it will show - Cannot infer type arguments for Bag<>
+		  - Also, if we use new Basket<>(new BlueBall(), new RedBall()),
+		  	it will show - Cannot infer type arguments for Basket<>
 		  
 		*/
 		

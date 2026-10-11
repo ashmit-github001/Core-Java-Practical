@@ -56,11 +56,11 @@ public class GenericsInheritance {
 		*/
 
 		
-//		List<Number> nList = new ArrayList<Integer>();
+//		List<Number> nList = new ArrayList<Integer>(); --> Not Allowed by the complier
 //		Type mismatch: cannot convert from ArrayList<Integer> to List<Number>
 		
 		List<Integer> iList = List.of(10, 20);
-//		printsList(iList);
+//		printsList(iList); --> Not Allowed by the complier
 //		The method printsList(List<Number>) is not applicable for the arguments (List<Integer>)
 		
 		/*
@@ -107,9 +107,11 @@ public class GenericsInheritance {
 		nList.add(3.14d);
 	}
 	
-	// Not Allowed
+
 //	private static List<Number> returnsList(List<Integer> iList) {
-//		return iList; // --> Type mismatch: cannot convert from List<Integer> to List<Number>
+	
+//		return iList; // --> Not Allowed by the complier
+//		Type mismatch: cannot convert from List<Integer> to List<Number>
 //	}
 	
 	
