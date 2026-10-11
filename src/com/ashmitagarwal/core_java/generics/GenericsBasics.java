@@ -121,7 +121,7 @@ public class GenericsBasics {
 		 
 		 /*
 		  
-		   IMP Points:
+		   Generics Internals:
 		   
 		   - Generics is actually a feature of the Compiler not Run-Time
 		   
@@ -139,25 +139,28 @@ public class GenericsBasics {
  
 		 */
 		 
-		 List<String> names1 = new ArrayList<>();
+		 List<String> namesList = new ArrayList<>();
 		 
-		 addNames(names1, "Name1");
-		 addNames(names1, "Name2");
+		 addNames(namesList, "Name1");
+		 addNames(namesList, "Name2");
 		 
-		 System.out.println(names1); // [ Name1 , Name2 ]
+		 System.out.println(namesList); // [ Name1 , Name2 ]
 		 
-		 addNumber(names1, 1234);
+		 incorrectAddNames(namesList, 1234);
 		 
-		 System.out.println(names1); // [ Name1 , Name2 , 1234 ]
+		 System.out.println(namesList); // [ Name1 , Name2 , 1234 ]
 		 
 		 /*
 		   When I pass the Generic Type to a non-parameterized type, it loses its type safety.
 		   
-		   Compiler will allow it since compiler is designed to be backward compatible :
-		    => List list = names1; --> will be perfectly acceptable
+		   Compiler will allow passing to a raw type,
+		   since compiler is designed to be backward compatible :
+		    => List list = namesList; --> will be perfectly acceptable
 		   
-		   When calling addNumber(names1, 1234), since I passed names1 to a
+		   When calling incorrectAddNames(namesList, 1234), since I passed namesList to a
 		   non-parameterized type, so now it is adding 1234 successfully.
+		   
+		   Because within the method compiler was adding string to a list of Object
 		   
 		   This signifies that the passed type is only associated with that particular Variable 
 		   which is a generic type and not the actual instance or Object
@@ -165,20 +168,67 @@ public class GenericsBasics {
 		 
 		 
 		 
-		 // But here since names1 is associated with only String type
+		 // But here since namesList is associated with only String type
 		 
-//		 String name = names1.get(2); --> so we will get a ClassCastException at run-time
+//		 String name = namesList.get(2); --> so we will get a ClassCastException at run-time
 		 
 		 
 		 
 		 /* ------------------------------------------------------------ */
+		 
+		 
+		 
+		/* 
+		  Generic Lists vs Typed Arrays
+		*/
+		
+		String[] namesArray = new String[3];
+		addNamestoArray(namesArray, 0, "Name1");
+		addNamestoArray(namesArray, 1, "Name2");
+		
+		printArray(namesArray); // [ Name1 , Name2 , null]
+		
+//		incorrectAddNamestoArray(namesArray, 2, 1234); ArrayStoreException
+		
+		/* 
+		  It is not allowing to add the Integer
+		  even though the array was passed to an Object Array.
+		  
+		  So, the Type information in an array exists in Run-time
+		  even if it is passed to another Array Type which is raw unlike Generic Collections/Classes
+		  
+		  But these things come in picture only when assigning to a raw type.
+		  In general, generics are powerful and provide a lot of Type Safety.
+		*/
+			
+			
+			
+		/* ------------------------------------------------------------ */
+		
+		
 	 }
 	 
 	 private static void addNames(List<String> list, String s) {
 		 list.add(s);
 	 }
 	 
-	 private static void addNumber(List list, Integer i) {
+	 private static void incorrectAddNames(List list, Integer i) {
 		 list.add(i);
 	 }
+	 
+	 private static void addNamestoArray(String[] array, int i, String str) {
+			array[i] = str;
+			
+	 }
+
+	private static void incorrectAddNamestoArray(Object[] array, int i, int num) {
+		array[i] = num;
+		
+	}
+		
+	private static void printArray(String[] array) {
+		for(String s : array) {
+			System.out.println(s);
+		}
+	}
 }
