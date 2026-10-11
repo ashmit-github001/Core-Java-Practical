@@ -9,11 +9,10 @@ import java.util.List;
 // Why use Generics?
 // Without generics, a Type [class/interface] eg: List, will accept any 'Object' data type
 
-public class GenericsBasics {
+public class GenericsBasics1 {
 	
 	 public static void main(String[] args) {
 	 
-		 
 		 
 		 // Without Generics
 		 
@@ -69,7 +68,7 @@ public class GenericsBasics {
 		 Integer x = 10;
 		 Integer y = i;
 		 
-		// Un-Boxing
+		 // Un-Boxing
 		 Double z = 3.14;
 		 double d = z;
 		 
