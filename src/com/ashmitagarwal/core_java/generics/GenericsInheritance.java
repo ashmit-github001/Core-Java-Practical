@@ -48,21 +48,26 @@ public class GenericsInheritance {
 		
 		
 		
-		// Generic Types are Invariant. So, collections does not support Covariance
+		/*
+		   
+		   Generic Types are Invariant to ensure type-safety.
+		   So, collections does not support Covariance.
+		   
+		*/
 
 		
 //		List<Object> objList = new ArrayList<String>();
 //		Type mismatch: cannot convert from List<String> to List<Object>
 		
 		List<String> sList = List.of("foo", "bar");
-//		printsList(sList); 
+//		printsList(sList);
 //		The method printsList(List<Object>) is not applicable for the arguments (List<String>)
 		
-		
-		
 		/*
+		   
 		   So, how do we make use of Inheritance in case of Generic Types?
 		   Answer : Using WILDCARDS !!
+		   
 		*/
 		
 	}
@@ -79,6 +84,9 @@ public class GenericsInheritance {
 		for(Object o : oArray) {
 			System.out.println(o);
 		}
+		
+//		oArray.add(...); --> However, this won't be allowed by the compiler
+//		oArray[0] = 100; --> This will be allowed but would give - ArrayStoreException
 	}
 	
 	private static Object[] returnsArray(String[] sArray) {
