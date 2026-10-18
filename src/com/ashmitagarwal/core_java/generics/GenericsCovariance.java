@@ -2,7 +2,7 @@ package com.ashmitagarwal.core_java.generics;
 
 import java.util.List;
 
-public class GenericsInheritance {
+public class GenericsCovariance {
 	
 	public static void main(String[] args) {
 		
