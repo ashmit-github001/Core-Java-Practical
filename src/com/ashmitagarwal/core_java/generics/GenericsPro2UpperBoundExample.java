@@ -3,7 +3,7 @@ package com.ashmitagarwal.core_java.generics;
 import com.ashmitagarwal.core_java.generics.balls_in_the_basket.*;
 import com.ashmitagarwal.core_java.generics.dice_in_the_bag.*;
 
-public class GenericsUpperBoundExample {
+public class GenericsPro2UpperBoundExample {
 	
 	public static void main(String[] args) {
 		
