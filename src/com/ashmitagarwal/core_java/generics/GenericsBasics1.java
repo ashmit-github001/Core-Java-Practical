@@ -159,7 +159,7 @@ public class GenericsBasics1 {
 		   When calling incorrectAddNames(namesList, 1234), since I passed namesList to a
 		   non-parameterized type, so now it is adding 1234 successfully.
 		   
-		   Because within the method compiler was adding string to a list of Object
+		   Because within the method compiler was adding Integer to a list of Object
 		   
 		   This signifies that the passed type is only associated with that particular Variable 
 		   which is a generic type and not the actual instance or Object
