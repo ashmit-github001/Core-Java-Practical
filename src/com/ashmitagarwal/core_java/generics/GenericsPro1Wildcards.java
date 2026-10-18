@@ -47,7 +47,7 @@ public class GenericsPro1Wildcards {
 		printNumber(doubList);
 		
 		List<String> strList = List.of("abc" , "xyz");
-//		printNumber(sList); --> Not Allowed by the complier
+//		printNumber(strList); --> Not Allowed by the complier
 //		The method printNumber(List<? extends Number>) is not applicable for the arguments (List<String>)
 		
 	}

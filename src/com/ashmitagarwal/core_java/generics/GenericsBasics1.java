@@ -46,7 +46,7 @@ public class GenericsBasics1 {
 		 List<String> gNames = new ArrayList<>();
 		 gNames.add("gName 1");
 		 gNames.add("gName 2");
-//		 names2.add(12); --> Compile-Time Type Check - does not allow this
+//		 gNames.add(12); --> Compile-Time Type Check - does not allow this
 		 
 		 // No Explicit Type Casting Required
 		 String gName1 = gNames.get(0);
@@ -92,10 +92,10 @@ public class GenericsBasics1 {
 		  
 		   1. Any CLASS or INTERFACE can make use of Generics
 		   
-		   2. That class or interface is a - GENERIC Type or PARAMETERIZED Type
+		   2. That class or interface is a - GENERIC Type or PARAMETERIZED Type [After application]
 		  
 		   3. Parametrized Type because - all the Variables & Methods in that,
-		   will make use of the passed Parameter (E) to denote the 
+		   will make use of the passed Parameter Type Argument (E) to denote the 
 		   variable type, method parameter type, return type.
 		   
 		   Ex:
@@ -122,10 +122,10 @@ public class GenericsBasics1 {
 		  
 		   Generics Internals:
 		   
-		   - Generics is actually a feature of the Compiler not Run-Time
+		   - Generics is actually a feature of the Compiler not the Run-Time
 		   
-		   - It is the Compiler which replaces all the occurences of the Generics
-		     inside a Generic Type with the actual passed type at the Compile-time itself
+		   - It is the Compiler which removes all the occurences of the Type argument
+		     inside a Generic Type and takes care of type-castings at each point.
 		     
 		   - This property of the Compiler is referred to as TYPE ERASURE
 		   
@@ -194,7 +194,7 @@ public class GenericsBasics1 {
 		  even though the array was passed to an Object Array.
 		  
 		  So, the Type information in an array exists in Run-time
-		  even if it is passed to another Array Type which is raw unlike Generic Collections/Classes
+		  even if it is passed to another Array which is of Object Type
 		  
 		  But these things come in picture only when assigning to a raw type.
 		  In general, generics are powerful and provide a lot of Type Safety.

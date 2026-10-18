@@ -85,7 +85,9 @@ public class GenericsCovariance {
 			System.out.println(n);
 		}
 		
-//		nArray[0] = "abc"; --> This will be allowed by the compiler but would give - ArrayStoreException
+		nArray[0] = 12345; // --> Allowed by compiler and works at runtime
+//		nArray[0] = 3.14d; // --> Allowed by compiler, throws ArrayStoreException at runtime
+//		nArray[0] = "abc"; // --> Compile-time Error : Type mismatch: cannot convert from String to Number
 	}
 	
 	private static Number[] returnsArray(Integer[] iArray) {
