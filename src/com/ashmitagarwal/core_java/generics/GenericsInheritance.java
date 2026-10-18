@@ -56,8 +56,8 @@ public class GenericsInheritance {
 		*/
 
 		
-//		List<Number> nList = new ArrayList<Integer>(); --> Not Allowed by the complier
-//		Type mismatch: cannot convert from ArrayList<Integer> to List<Number>
+//		ArrayList<Number> nList = new ArrayList<Integer>(); --> Not Allowed by the complier
+//		Type mismatch: cannot convert from ArrayList<Integer> to ArrayList<Number>
 		
 		List<Integer> iList = List.of(10, 20);
 //		printsList(iList); --> Not Allowed by the complier
@@ -85,8 +85,7 @@ public class GenericsInheritance {
 			System.out.println(n);
 		}
 		
-//		nArray.add(...); --> However, this won't be allowed by the compiler
-//		nArray[0] = "abc"; --> This will be allowed but would give - ArrayStoreException
+//		nArray[0] = "abc"; --> This will be allowed by the compiler but would give - ArrayStoreException
 	}
 	
 	private static Number[] returnsArray(Integer[] iArray) {
@@ -123,7 +122,23 @@ public class GenericsInheritance {
 	/*
 
 	  Example of Covariant Return Type in Method Overriding
-	  The overriding method is returning Dog which is a SubType of Animal
+	  The overriding method is returning Dog which is a SubType of Animal, this is allowed.
+	  
+	  So, in case :
+	  
+	  Example 1:
+	  
+	  Animal obj = new Dog();
+	  Animal animal = obj.getAnimal();
+	  
+	  The above will still work due to covariance.
+	  Because even if it returns a Dog object/ or any subtype object,
+	  but it is assigned to an Animal Reference Type just fine.
+	  
+	  Example 2:
+	  
+	  Dog myDog = new Dog();
+	  Dog duplicate = myDog.getAnimal(); // No Explicit Type Casting needed
 
 	*/
 	
